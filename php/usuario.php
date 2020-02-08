@@ -15,7 +15,11 @@
 		public function consulta(){
 			$this->sentencia="SELECT * FROM usuario";
 			return $this->obtenerSentencia();
-			
+		}
+
+		public function modificar ($nombre, $tipo, $password){
+			$this->sentencia= "UPDATE FROM usuario SET nombre='$nombre', tipo='$tipo', password='$password' WHERE IDusuario='$id'";
+			$this->ejecutarSentencia();
 		}
 
 	}

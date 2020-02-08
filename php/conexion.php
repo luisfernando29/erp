@@ -1,7 +1,7 @@
 <?php 
 	class Conexion{
-		private $usuario "root";
-		private $base "erp";
+		private $usuario= "root";
+		private $base= "erp";
 		private $password="";
 		private $host="localhost";
 		protected $sentencia="";

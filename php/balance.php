@@ -15,7 +15,11 @@
 		public function consulta(){
 			$this->sentencia="SELECT * FROM balance";
 			return $this->obtenerSentencia();
-			
+		}
+
+		public function modificar ($fecha,$IDempleado,$hora){
+			$this->sentencia= "UPDATE FROM balance SET fechainicio='$fechainicio', fechafin='$fechafin', total='$total' WHERE IDbalance='$id'";
+			$this->ejecutarSentencia();
 		}
 
 	}

@@ -18,6 +18,11 @@
 			
 		}
 
+		public function modificar ($nombre, $direccion, $telefono, $correo, $apematerno, $apepaterno, $sexo, $fenacimiento){
+			$this->sentencia= "UPDATE FROM cliente SET nombre='$nombre', direccion='$direccion', telefono='$telefono', correo='$correo', apematerno='$apematerno', 'apepaterno=$apepaterno', sexo='$sexo', fenacimiento='$fenacimiento' WHERE IDcliente='$id'";
+			$this->ejecutarSentencia();
+		}
+
 	}
 
 
