@@ -1,3 +1,15 @@
+<div id="grafica">
+	<form action="" method="post">
+		<input type="hidden" value"asistencia" name="table">
+		<input type="submit" name="grafica" value="Graficar">
+	</form>
+	
+</div>
+<?php
+if (isset($_POST["grafica"])) {
+	require_once("php/grafica.php");
+}
+?>
 <form action="" method="post">
 
 	Fecha: <br>
@@ -28,7 +40,8 @@ $obj = new Asistencia();
  		<th>fecha</th>
  		<th>id empleado</th>
  		<th>hora</th>
- 	</tr>
+ 		<th>Eliminar</th>
+ 		<th>Modificar</th>
  	<?php 
  		$res= $obj-> consulta();
  		while ($fila=$res->fetch_assoc()) {
@@ -36,6 +49,20 @@ $obj = new Asistencia();
  			echo "<td>".$fila["fecha"]."</td>";
  			echo "<td>".$fila["IDempleado"]."</td>";
  			echo "<td>".$fila["hora"]."</td>";
+	 		?>	
+			<td>
+		 		<form action="" method="post">
+			 		<input type="hidden" value="<?php echo $fila['IDasistencia']?>" name="id">
+			 		<input type="submit" name="eliminar" value="eliminar">
+		 		</form>
+		 	</td>
+		 	<td>
+		 		<form action="" method="post">
+			 		<input type="hidden" value="<?php echo $fila['IDasistencia']?>" name="id">
+			 		<input type="submit" name="modificar" value="modificar">
+		 		</form>
+		 	</td>
+ 		<?php
  			echo "</tr>";
  		}
  	 ?>

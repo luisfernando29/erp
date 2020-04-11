@@ -43,3 +43,52 @@ th{
 	background-color: #dd4;
 	color: #333;
 }
+section{
+	display: inline-block;
+	width: 100vw;
+}
+nav{
+	background-color: black;
+	display: inline-block;
+	height: 100vh;
+	padding: 2em;
+	width: 20vw;
+	vertical-align: top;
+}
+article{
+	display: inline-block;
+	min-height: 100vh;
+	vertical-align: top;
+	width: 70vw;
+}
+a{
+	color: #ddd;
+	font-weight: bold;
+	text-decoration: none;
+}
+li{
+	list-style: none;
+	padding: 0.4em;
+}
+li:hover{
+	background-color: #333;
+	color: white;
+	font-size: 1.2em;
+	transition: 2s;
+}
+#grafica{
+	padding: 0;
+	width: 100%;
+}
+#grafica form{
+	padding: 0;
+	text-align: right;
+}
+#grafica form input[type="submit"]{
+	background-color: steelblue;
+}
+#myChart{
+	margin: 0 auto;
+	max-width: 70%;
+}
+}

@@ -31,7 +31,8 @@ $obj = new Compra();
  		<th>total</th>
  		<th>tipo de pago</th>
  		<th>Id cliente</th>
- 	</tr>
+ 		<th>Eliminar</th>
+ 		<th>Modificar</th>
  	<?php 
  		$res= $obj-> consulta();
  		while ($fila=$res->fetch_assoc()) {
@@ -40,6 +41,20 @@ $obj = new Compra();
  			echo "<td>".$fila["total"]."</td>";
  			echo "<td>".$fila["tipoPago"]."</td>";
  			echo "<td>".$fila["IDcliente"]."</td>";
+ 		?>	
+		<td>
+	 		<form action="" method="post">
+		 		<input type="hidden" value="<?php echo $fila['IDcompra']?>" name="id">
+		 		<input type="submit" name="eliminar" value="eliminar">
+	 		</form>
+	 	</td>
+	 	<td>
+	 		<form action="" method="post">
+		 		<input type="hidden" value="<?php echo $fila['IDcompra']?>" name="id">
+		 		<input type="submit" name="modificar" value="modificar">
+	 		</form>
+	 	</td>
+ 	<?php
  			echo "</tr>";
  		}
  	 ?>

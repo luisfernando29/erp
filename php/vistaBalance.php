@@ -28,7 +28,8 @@ $obj = new Balance();
  		<th>fecha de inicio</th>
  		<th>fecha de fin</th>
  		<th>total</th>
- 	</tr>
+ 		<th>Eliminar</th>
+ 		<th>Modificar</th>
  	<?php 
  		$res= $obj-> consulta();
  		while ($fila=$res->fetch_assoc()) {
@@ -36,6 +37,20 @@ $obj = new Balance();
  			echo "<td>".$fila["fechainicio"]."</td>";
  			echo "<td>".$fila["fechafin"]."</td>";
  			echo "<td>".$fila["total"]."</td>";
+ 		?>	
+		<td>
+	 		<form action="" method="post">
+		 		<input type="hidden" value="<?php echo $fila['IDbalance']?>" name="id">
+		 		<input type="submit" name="eliminar" value="eliminar">
+	 		</form>
+	 	</td>
+	 	<td>
+	 		<form action="" method="post">
+		 		<input type="hidden" value="<?php echo $fila['IDbalance']?>" name="id">
+		 		<input type="submit" name="modificar" value="modificar">
+	 		</form>
+	 	</td>
+ 	<?php
  			echo "</tr>";
  		}
  	 ?>

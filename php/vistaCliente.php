@@ -48,7 +48,9 @@ $obj = new Cliente();
  		<th>Ap. paterno</th>
  		<th>sexo</th>
  		<th>fecha de nacimiento</th>
- 	</tr>
+ 		<th>Eliminar</th>
+ 		<th>Modificar</th> 
+ 	</tr>	
  	<?php 
  		$res= $obj-> consulta();
  		while ($fila=$res->fetch_assoc()) {
@@ -61,6 +63,20 @@ $obj = new Cliente();
  			echo "<td>".$fila["apepaterno"]."</td>";
  			echo "<td>".$fila["sexo"]."</td>";
  			echo "<td>".$fila["fechanacimiento"]."</td>";
+ 		?>	
+		<td>
+	 		<form action="" method="post">
+		 		<input type="hidden" value="<?php echo $fila['IDcliente']?>" name="id">
+		 		<input type="submit" name="eliminar" value="eliminar">
+	 		</form>
+	 	</td>
+	 	<td>
+	 		<form action="" method="post">
+		 		<input type="hidden" value="<?php echo $fila['IDcliente']?>" name="id">
+		 		<input type="submit" name="modificar" value="modificar">
+	 		</form>
+	 	</td>
+ 	<?php
  			echo "</tr>";
  		}
  	 ?>

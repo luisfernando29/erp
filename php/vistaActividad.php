@@ -1,6 +1,6 @@
 <form action="" method="post">
 
-	<!--Registro: <br>
+	Registro: <br>
 	<input type="text" name="registro" placeholder="Escribe el registro">
 	<br>
 	Idusuario: <br>
@@ -20,7 +20,7 @@ $obj = new Actividad();
 		$registro=$_POST["registro"];
 		$IDusuario=$_POST["IDusuario"];
 		$movimiento_act=$_POST["movimiento_act"];
-		$movimiento_tabla=$_POST["$movimiento_tabla"];
+		$movimiento_tabla=$_POST["movimiento_tabla"];
 		$obj -> alta($registro,$IDusuario,$movimiento_act,$movimiento_tabla); 
 		echo "<h2>Actividad registrada</h2>";
 	}
@@ -32,6 +32,8 @@ $obj = new Actividad();
  		<th>id usuario</th>
  		<th>movimiento actividad</th>
  		<th>movimiento tabla</th>
+ 		<th>Eliminar</th>
+ 		<th>Modificar</th>
  	</tr>
  	<?php 
  		$res= $obj-> consulta();
@@ -41,6 +43,20 @@ $obj = new Actividad();
  			echo "<td>".$fila["IDusuario"]."</td>";
  			echo "<td>".$fila["movimiento_act"]."</td>";
  			echo "<td>".$fila["movimiento_tabla"]."</td>";
+ 			?>	
+	 		<td>
+		 		<form action="" method="post">
+			 		<input type="hidden" value="<?php echo $fila['IDactividad']?>" name="id">
+			 		<input type="submit" name="eliminar" value="eliminar">
+	 			</form>
+	 		</td>
+			<td>
+	 			<form action="" method="post">
+	 				<input type="hidden" value="<?php echo $fila['IDactividad']?>" name="id">
+	 				<input type="submit" name="modificar" value="Modificar">
+	 			</form>
+ 			</td>
+ 		<?php
  			echo "</tr>";
  		}
  	 ?>
