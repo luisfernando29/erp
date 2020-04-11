@@ -32,6 +32,7 @@ if(isset($_POST["alta"])){
     $obj->alta($IDmobiliario,$fecha,$costo,$descripcion);
     echo"<h2>Remplazo realizado<h2>";
 }
+
 require_once("remplazo.php");
 $obj=new Remplazo();
 ?>
@@ -42,6 +43,8 @@ $obj=new Remplazo();
 <th>Costo</th>
 <th>Descripcion</th>
 </tr>
+
+
 <?php
     $res = $obj->consulta();
     while($fila = $res->fetch_assoc()){

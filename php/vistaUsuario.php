@@ -16,7 +16,6 @@ if(!isset($_POST["modificar"])){ ?>
 	<input type="submit" name="alta" value="Guardar Usuario"> 
 </form>
 <?php }else{ 
-		
 		$res = $obj->buscar($_POST["id"]);
 		$fila = $res->fetch_assoc();
 	?>
