@@ -8,6 +8,7 @@
 </select><br>
 <input type="submit" name="alta" value="Guardar Proyecto">
 </form>
+
 <?php
 if(isset($_POST["alta"])){
     $nombre_pro=$_POST["nombre_pro"];

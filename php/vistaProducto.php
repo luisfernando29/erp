@@ -43,6 +43,7 @@ if(isset($_POST["alta"])){
 require_once("producto.php");
 $obj=new Producto();
 ?>
+
 <table>
 <tr>
 <th>Nombre</th>
@@ -54,6 +55,7 @@ $obj=new Producto();
 <th>Cantidad Maxima</th>
 <th>Categoria</th>
 </tr>
+
 <?php
     $res = $obj->consulta();
     while($fila = $res->fetch_assoc()){

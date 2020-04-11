@@ -3,6 +3,7 @@ require_once("proveedor.php");
 $obj=new Proveedor();
 if(!isset($_POST["modificar"])){ 
  ?>
+
 <form action="" method="post">
 <input type="text" name="nombre" placeholder="Nombre: "><br>
 <input type="text" name="telefono" placeholder="Telefono: "><br>
@@ -14,7 +15,6 @@ if(!isset($_POST["modificar"])){
 </form>
 <?php }else{ 
     $res = $obj->buscar($_POST["id"]);
-
     $fila = $res->fetch_assoc();
     ?>
 
