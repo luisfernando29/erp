@@ -20,6 +20,7 @@
 <?php 
 require_once("jornada.php");
 $obj = new jornada();
+
 	if (isset($_POST["alta"])) {
 		$hrs_trabajadas=$_POST["hrs_trabajadas"];
 		$dias_trabajados=$_POST["dias_trabajados"];
@@ -30,8 +31,31 @@ $obj = new jornada();
 		$obj -> alta($hrs_trabajadas,$dias_trabajados,$pago_hora,$horas_extra,$bonos,$IDempleado); 
 		echo "<h2>Jornada registrada</h2>";
 	}
+	if (isset($_POST["mod"])) {
+		$hrs_trabajadas=$_POST["hrs_trabajadas"];
+		$dias_trabajados=$_POST["dias_trabajados"];
+		$pago_hora=$_POST["pago_hora"];
+		$horas_extra=$_POST["horas_extra"];
+		$bonos=$_POST["bonos"];
+		$IDempleado=$_POST["IDempleado"];
+		$id=$_POST["id"];
+		$obj -> modificar($hrs_trabajadas,$dias_trabajados,$pago_hora,$horas_extra,$bonos,$IDempleado,$id);
+		echo "<h2>Jornada modificada</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar la Jornada?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
+	}
  ?>
--->
+
  <table>
  	<tr>
  		<th>hrs_trabajadas</th>

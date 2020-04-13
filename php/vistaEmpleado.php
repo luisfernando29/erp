@@ -31,6 +31,7 @@
 <?php 
 require_once("empleado.php");
 $obj = new Empleado();
+
 	if (isset($_POST["alta"])) {
 		$nombre =$_POST["nombre"];
 		$appaterno =$_POST["appaterno"];
@@ -46,6 +47,35 @@ $obj = new Empleado();
 		$nss =$_POST["nss"];
 		$obj -> alta($nombre,$appaterno,$apmaterno,$correo,$rfc,$telefono,$sexo,$fechadeingreso,$cargo,$salario,$estadocivil,$nss); 
 		echo "<h2>Asistencia registrada</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$nombre =$_POST["nombre"];
+		$appaterno =$_POST["appaterno"];
+		$apmaterno =$_POST["apmaterno"];
+		$correo =$_POST["correo"];
+		$rfc =$_POST["rfc"];
+		$telefono =$_POST["telefono"];
+		$sexo =$_POST["sexo"];
+		$fechadeingreso =$_POST["fechadeingreso"];
+		$cargo =$_POST["cargo"];
+		$salario =$_POST["salario"];
+		$estadocivil =$_POST["estadocivil"];
+		$nss =$_POST["nss"];
+		$id=$_POST["id"];
+		$obj -> modificar($nombre,$appaterno,$apmaterno,$correo,$rfc,$telefono,$sexo,$fechadeingreso,$cargo,$salario,$estadocivil,$nss,$id);
+		echo "<h2>Asistencia modificado</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar la Asistencia?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 

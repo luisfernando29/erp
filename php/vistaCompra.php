@@ -15,6 +15,7 @@
 <?php 
 require_once("compra.php");
 $obj = new Compra();
+
 	if (isset($_POST["alta"])) {
 		$fecha=$_POST["fecha"];
 		$total=$_POST["total"];
@@ -22,6 +23,27 @@ $obj = new Compra();
 		$IDcliente=$_POST["IDcliente"];
 		$obj -> alta($fecha,$total,$tipoPago,$IDcliente); 
 		echo "<h2>Compra registrada</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$fecha=$_POST["fecha"];
+		$total=$_POST["total"];
+		$tipoPago=$_POST["tipoPago"];
+		$IDcliente=$_POST["IDcliente"];
+		$id=$_POST["id"];
+		$obj -> modificar($fecha,$total,$tipoPago,$IDcliente,$id);
+		echo "<h2>compra modificado</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar la compra?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 

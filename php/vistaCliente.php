@@ -24,6 +24,7 @@
 <?php 
 require_once("cliente.php");
 $obj = new Cliente();
+
 	if (isset($_POST["alta"])) {
 		$nombre=$_POST["nombre"];
 		$direccion=$_POST["direccion"];
@@ -35,6 +36,31 @@ $obj = new Cliente();
 		$fechanacimiento=$_POST["fechanacimiento"];
 		$obj -> alta($nombre,$direccion,$telefono,$correo,$apematerno,$apepaterno,$sexo,$fechanacimiento); 
 		echo "<h2>Cliente registrado</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$nombre=$_POST["nombre"];
+		$direccion=$_POST["direccion"];
+		$telefono=$_POST["telefono"];
+		$correo=$_POST["correo"];
+		$apematerno=$_POST["apematerno"];
+		$apepaterno=$_POST["apepaterno"];
+		$sexo=$_POST["sexo"];
+		$fechanacimiento=$_POST["fechanacimiento"];
+		$id=$_POST["id"];
+		$obj -> modificar($nombre,$direccion,$telefono,$correo,$apematerno,$apepaterno,$sexo,$fechanacimiento,$id);
+		echo "<h2>Cliente modificado</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar el Cliente?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 

@@ -14,12 +14,33 @@
 <?php 
 require_once("detalleCompra.php");
 $obj = new detalleCompra();
+
 	if (isset($_POST["alta"])) {
 		$IDmateriaPrima=$_POST["IDmateriaPrima"];
 		$IDcompra=$_POST["IDcompra"];
 		$cantidad=$_POST["cantidad"];
 		$obj -> alta($IDmateriaPrima, $IDcompra,$cantidad); 
 		echo "<h2>detalle registrado</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$IDmateriaPrima=$_POST["IDmateriaPrima"];
+		$IDcompra=$_POST["IDcompra"];
+		$cantidad=$_POST["cantidad"];
+		$id=$_POST["id"];
+		$obj -> modificar($IDmateriaPrima, $IDcompra,$cantidad,$id);
+		echo "<h2>detalles modificados</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar los detalles?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 

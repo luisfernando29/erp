@@ -29,8 +29,7 @@
 				<a href="?sec=empl"><li>Empleado</li></a>
 				<a href="?sec=evalu"><li>Evaluacion</li></a>
 				<a href="?sec=jorn"><li>Jornada</li></a>
-				<a href="?sec=cerrar"><li>cerrar sesion</li></a>
-
+				
 				<a href="?sec=mobi"><li>Moviliario</li></a>
 				<a href="?sec=pago"><li>Pago</li></a>
 				<a href="?sec=pedi"><li>Pedido</li></a>
@@ -39,6 +38,8 @@
 				<a href="?sec=proyec"><li>Proyecto</li></a>
 				<a href="?sec=rempl"><li>Remplazo</li></a>
 				<a href="?sec=venta"><li>Venta</li></a>
+
+				<a href="?sec=cerrar"><li>cerrar sesion</li></a>
 
 			</ul>
 		</nav>
@@ -82,7 +83,7 @@
 						break;
 
 					case 'mobi':
-						require_once("php/vistaMobi.php");
+						require_once("php/vistaMobiliario.php");
 						break;
 					case 'pago':
 						require_once("php/vistaPago.php");

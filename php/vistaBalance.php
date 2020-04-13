@@ -14,12 +14,33 @@
 <?php 
 require_once("balance.php");
 $obj = new Balance();
+
 	if (isset($_POST["alta"])) {
 		$fechainicio=$_POST["fechainicio"];
 		$fechafin=$_POST["fechafin"];
 		$total=$_POST["total"];
 		$obj -> alta($fechainicio, $fechafin,$total); 
 		echo "<h2>Registrado</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$fechainicio=$_POST["fechainicio"];
+		$fechafin=$_POST["fechafin"];
+		$total=$_POST["total"];
+		$id=$_POST["id"];
+		$obj -> modificar($fechainicio, $fechafin,$total,$id);
+		echo "<h2>Modificado</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar el Balance?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 

@@ -16,6 +16,7 @@
 <?php 
 require_once("actividad.php");
 $obj = new Actividad();
+
 	if (isset($_POST["alta"])) {
 		$registro=$_POST["registro"];
 		$IDusuario=$_POST["IDusuario"];
@@ -24,8 +25,29 @@ $obj = new Actividad();
 		$obj -> alta($registro,$IDusuario,$movimiento_act,$movimiento_tabla); 
 		echo "<h2>Actividad registrada</h2>";
 	}
+	if (isset($_POST["mod"])) {
+		$registro=$_POST["registro"];
+		$IDusuario=$_POST["IDusuario"];
+		$movimiento_act=$_POST["movimiento_act"];
+		$movimiento_tabla=$_POST["movimiento_tabla"];
+		$id=$_POST["id"];
+		$obj -> modificar($registro,$IDusuario,$movimiento_act,$movimiento_tabla,$id);
+		echo "<h2>Actividad modificada</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar la actividad?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
+	}
  ?>
--->
+
  <table>
  	<tr>
  		<th>registro</th>

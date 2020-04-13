@@ -16,6 +16,7 @@
 <?php 
 require_once("devoluciones.php");
 $obj = new Devoluciones();
+
 	if (isset($_POST["alta"])) {
 		$fecha=$_POST["fecha"];
 		$cantidad=$_POST["cantidad"];
@@ -23,6 +24,27 @@ $obj = new Devoluciones();
 		$IDproducto=$_POST["IDproducto"];
 		$obj -> alta($fecha,$cantidad,$descripcion,$IDproducto); 
 		echo "<h2>devolucion registrada</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$fecha=$_POST["fecha"];
+		$cantidad=$_POST["cantidad"];
+		$descripcion=$_POST["descripcion"];
+		$IDproducto=$_POST["IDproducto"];
+		$id=$_POST["id"];
+		$obj -> modificar($fecha,$cantidad,$descripcion,$IDproducto,$id);
+		echo "<h2>Devolucion modificada</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar la Devolucion?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 

@@ -1,4 +1,9 @@
-<div id="grafica">
+<?php 
+require_once("venta.php");
+$obj=new Venta();
+if(!isset($_POST["modificar"])){ 
+ ?>
+ <div id="grafica">
     <form action="" method="post">
         <input type="hidden" value="venta" name="tabla">
         <input type="hidden" value="total" name="dato">
@@ -12,6 +17,7 @@ if(isset($_POST["grafica"])){
     require_once("php/grafica.php");
 }
 ?>
+
 <form action="" method="post">
 <input type="text" name="fecha" placeholder="Fecha: "><br>
 <input type="text" name="IDCliente" placeholder="IDcliente: "><br>
@@ -20,19 +26,40 @@ if(isset($_POST["grafica"])){
 </select><br>
 <input type="submit" name="alta" value="Guardar Venta">
 </form>
+<?php }else{ 
+    $res = $obj->buscar($_POST["id"]);
+    $fila = $res->fetch_assoc();
+?>
 
+<form action="" method="post">
+<input type="text" name="fecha" placeholder="Fecha: " value= '<?php echo $fila["fecha"] ?>'><br>
+<input type="text" name="IDCliente" placeholder="IDcliente: " value= '<?php echo $fila["IDcliente"] ?>'><br>
+<input type="text" name="total" placeholder="Total " value= '<?php echo $fila["total"] ?>'><br>
+<input type="text" name="tipo_pago" placeholder="Tipo de pago: " value= '<?php echo $fila["tipo_pago"] ?>'><br>
+</select><br>
+<input type="hidden" value='<?php echo $_POST["id"] ?>' name="id">
+<input type="submit" name="mod" value="Modificar Venta">
+</form>
 <?php
-require_once("venta.php");
-$obj=new Venta();
+}
+if(isset($_POST["alta"])){
+    $fecha=$_POST["fecha"];
+    $IDCliente=$_POST["IDCliente"];
+    $total=$_POST["total"];
+    $tipo_pago=$_POST["tipo_pago"];
+
+    $obj->alta($fecha,$IDCliente,$total,$tipo_pago);
+    echo"<h2>Venta Registrado<h2>";
+}
 
 if(isset($_POST["mod"])){
     $fecha = $_POST["fecha"];
     $IDCliente = $_POST["IDCliente"];
     $total = $_POST["total"];
     $tipo_pago = $_POST["tipo_pago"];
-
-    $obj->modificar($fecha,$IDCliente,$total,$tipo_pago);
-    echo "<h2>Usuario modificado</h2>";
+    $id = $_POST["id"];
+    $obj->modificar($fecha,$IDCliente,$total,$tipo_pago,$id);
+    echo "<h2>Venta modificada</h2>";
 }
 
 if(isset($_POST["eliminar"])){
@@ -51,18 +78,6 @@ if(isset($_GET["el"])){
     window.location.href = 'home.php?sec=ven' 
     </script>";
 }
-
-if(isset($_POST["alta"])){
-    $fecha=$_POST["fecha"];
-    $IDCliente=$_POST["IDCliente"];
-    $total=$_POST["total"];
-    $tipo_pago=$_POST["tipo_pago"];
-    require_once("venta.php");
-    $obj=new Venta();
-    $obj->alta($fecha,$IDCliente,$total,$tipo_pago);
-    echo"<h2>Venta Registrado<h2>";
-}
-
 ?>
 <table>
 <tr>
@@ -72,15 +87,15 @@ if(isset($_POST["alta"])){
 <th>Tipo de Pago</th>
 </tr>
 <?php
-    $res = $obj->consulta();
-    while($fila = $res->fetch_assoc()){
-        echo"<tr>";
-        echo"<td>".$fila["fecha"]."</td>";
-        echo"<td>".$fila["IDventa"]."</td>";
-        echo"<td>".$fila["total"]."</td>";
-        echo"<td>".$fila["tipo_pago"]."</td>";
-        echo"</tr>";
-        ?>
+        $res = $obj->consulta();
+        while($fila = $res->fetch_assoc()){
+            echo"<tr>";
+            echo"<td>".$fila["fecha"]."</td>";
+            echo"<td>".$fila["IDventa"]."</td>";
+            echo"<td>".$fila["total"]."</td>";
+            echo"<td>".$fila["tipo_pago"]."</td>";
+            echo"</tr>";
+            ?>
         <td>
         <form action="" method="post">
               <input type="hidden" name="id" value="<?php echo $fila['IDventa'] ?>">
@@ -88,12 +103,12 @@ if(isset($_POST["alta"])){
         </form>
         </td>
 
- 			<td>
- 				<form action="" method="post">
+            <td>
+                <form action="" method="post">
                     <input type="hidden" value="<?php echo $fila['IDventa'] ?>" name="id">
                     <input type="submit" name="modificar" value="Modificar">
- 				</form>
- 			</td>
+                </form>
+            </td>
         <?php
         echo"</tr>";
     }

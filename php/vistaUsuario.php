@@ -41,6 +41,7 @@ if(!isset($_POST["modificar"])){ ?>
 		$nombre=$_POST["nombre"];
 		$password=$_POST["password"];
 		$tipo=$_POST["tipo"];
+		
 		$obj -> alta($nombre, $tipo, $password);
 		echo "<h2>Usuario registrado</h2>";
 	}

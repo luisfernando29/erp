@@ -30,6 +30,7 @@
 <?php 
 require_once("evaluacion.php");
 $obj = new evaluacion();
+
 	if (isset($_POST["alta"])) {
 		$tipo=$_POST["tipo"];
 		$pregunta1 =$_POST["pregunta1"];
@@ -44,6 +45,34 @@ $obj = new evaluacion();
 		$pregunta10 =$_POST["pregunta10"];
 		$obj -> alta($tipo,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,$pregunta7,$pregunta8,$pregunta9,$pregunta10); 
 		echo "<h2>evaluacion registrada</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$tipo=$_POST["tipo"];
+		$pregunta1 =$_POST["pregunta1"];
+		$pregunta2 =$_POST["pregunta2"];
+		$pregunta3 =$_POST["pregunta3"];
+		$pregunta4 =$_POST["pregunta4"];
+		$pregunta5 =$_POST["pregunta5"];
+		$pregunta6 =$_POST["pregunta6"];
+		$pregunta7 =$_POST["pregunta7"];
+		$pregunta8 =$_POST["pregunta8"];
+		$pregunta9 =$_POST["pregunta9"];
+		$pregunta10 =$_POST["pregunta10"];
+		$id=$_POST["id"];
+		$obj -> modificar($tipo,$pregunta1,$pregunta2,$pregunta3,$pregunta4,$pregunta5,$pregunta6,$pregunta7,$pregunta8,$pregunta9,$pregunta10,$id);
+		echo "<h2>Evaluacion modificada</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar la Evaluacion?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 -->

@@ -26,12 +26,33 @@ if (isset($_POST["grafica"])) {
 <?php 
 require_once("asistencia.php");
 $obj = new Asistencia();
+
 	if (isset($_POST["alta"])) {
 		$fecha=$_POST["fecha"];
 		$IDempleado=$_POST["IDempleado"];
 		$hora=$_POST["hora"];
 		$obj -> alta($fecha, $IDempleado,$hora); 
 		echo "<h2>Asistencia registrada</h2>";
+	}
+	if (isset($_POST["mod"])) {
+		$fecha=$_POST["fecha"];
+		$IDempleado=$_POST["IDempleado"];
+		$hora=$_POST["hora"];
+		$id=$_POST["id"];
+		$obj -> modificar($fecha, $IDempleado,$hora,$id);
+		echo "<h2>Asistencia modificada</h2>";
+	}
+	if (isset($_POST["eliminar"])) {
+		echo "<script>
+		var opcion = confirm('¿Deseas eliminar la Asistencia?');
+		if(opcion===true){
+			window.location.href = 'home.php?sec=".$_POST["id"]."';
+		}
+		</script>";
+	}
+	if(isset($_GET["el"])){
+		$obj->eliminar($_GET["el"]);
+		echo"<script>alert";
 	}
  ?>
 
