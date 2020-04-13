@@ -75,7 +75,10 @@ $obj = new Empleado();
 	}
 	if(isset($_GET["el"])){
 		$obj->eliminar($_GET["el"]);
-		echo"<script>alert";
+		echo "<script>
+        alert('Eliminado');
+        window.location.href = 'home.php?sec=prov';
+    	</script>";
 	}
  ?>
 
