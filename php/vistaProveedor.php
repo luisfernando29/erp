@@ -46,11 +46,9 @@ if(isset($_POST["mod"])){
     $direccion=$_POST["direccion"];
     $correo=$_POST["correo"];
     $rfc=$_POST["rfc"];
-
     $id = $_POST["id"];
-    
     $obj->modificar($nombre,$telefono,$direccion,$correo,$rfc,$id);
-    echo "<h2>Usuario modificado</h2>";
+    echo "<h2>proveedor modificado</h2>";
 }
 
 if(isset($_POST["eliminar"])){
@@ -64,7 +62,7 @@ if(isset($_POST["eliminar"])){
 if(isset($_GET["el"])){
     $obj->baja($_GET["el"]);
     echo "<script>
-        alert('Proveedor eliminado');
+        alert('Eliminado');
         window.location.href = 'home.php?sec=prov';
     </script>";
 }
