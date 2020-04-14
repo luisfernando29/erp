@@ -18,14 +18,14 @@ if(isset($_POST["grafica"])){
 ?>
 
 <form action="" method="post">
-<input type="text" name="nombre" placeholder="Nombre: "><br>
-<input type="text" name="descripcion" placeholder="Descripcion: "><br>
-<input type="text" name="preciov" placeholder="Precio Venta: "><br>
-<input type="text" name="precioc" placeholder="Precio Compra: "><br>
-<input type="text" name="cantidad" placeholder="Cantidad: "><br>
-<input type="text" name="cantmin" placeholder="Cantidad Minima: "><br>
-<input type="text" name="cantmax" placeholder="Cantidad Maxima: "><br>
-<input type="text" name="categoria" placeholder="Categoria: "><br>
+Nombre<br><input type="text" name="nombre" placeholder="escribe el nombre"><br>
+Descripcion<br><input type="text" name="descripcion" placeholder="descripcion del producto"><br>
+Precio Venta<br><input type="text" name="preciov" placeholder="precio de venta del producto"><br>
+Precio Compra<br><input type="text" name="precioc" placeholder="precio de Compra del producto"><br>
+Cantidad<br><input type="text" name="cantidad" placeholder="cantidad de productos"><br>
+Cantidad Minima<br><input type="text" name="cantmin" placeholder="cantidad de productos"><br>
+Cantidad Maxima<br><input type="text" name="cantmax" placeholder="cantidad de productos"><br>
+Categoria<br><input type="text" name="categoria" placeholder="categoria del producto"><br>
 </select><br>
 <input type="submit" name="alta" value="Guardar Producto">
 </form>
@@ -35,14 +35,14 @@ if(isset($_POST["grafica"])){
 ?>
 
 <form action="" method="post">
-<input type="text" name="nombre" placeholder="Nombre: " value= '<?php echo $fila["nombre"] ?>'><br>
-<input type="text" name="descripcion" placeholder="Descripcion: " value= '<?php echo $fila["descripcion"] ?>'><br>
-<input type="text" name="preciov" placeholder="Precio Venta: " value= '<?php echo $fila["preciov"] ?>'><br>
-<input type="text" name="precioc" placeholder="Precio Compra: " value= '<?php echo $fila["precioc"] ?>'><br>
-<input type="text" name="cantidad" placeholder="Cantidad: " value= '<?php echo $fila["cantidad"] ?>'><br>
-<input type="text" name="cantmin" placeholder="Cantidad Minima: " value= '<?php echo $fila["cantmin"] ?>'><br>
-<input type="text" name="cantmax" placeholder="Cantidad Maxima: " value= '<?php echo $fila["cantmax"] ?>'><br>
-<input type="text" name="categoria" placeholder="Categoria: " value= '<?php echo $fila["categoria"] ?>'><br>
+Nombre<br><input type="text" name="nombre" placeholder="escribe el nombre" value= '<?php echo $fila["nombre"] ?>'><br>
+Descripcion<br><input type="text" name="descripcion" placeholder="descripcion del producto" value= '<?php echo $fila["descripcion"] ?>'><br>
+Precio Venta<br><input type="text" name="preciov" placeholder="precio de venta del producto" value= '<?php echo $fila["preciov"] ?>'><br>
+Precio Compra<br><input type="text" name="precioc" placeholder="precio de Compra del producto" value= '<?php echo $fila["precioc"] ?>'><br>
+Cantidad<br><input type="text" name="cantidad" placeholder="cantidad de productos" value= '<?php echo $fila["cantidad"] ?>'><br>
+Cantidad Minima<br><input type="text" name="cantmin" placeholder="cantidad de productos" value= '<?php echo $fila["cantmin"] ?>'><br>
+Cantidad Maxima<br><input type="text" name="cantmax" placeholder="cantidad de productos" value= '<?php echo $fila["cantmax"] ?>'><br>
+Categoria<br><input type="text" name="categoria" placeholder="categoria del producto" value= '<?php echo $fila["categoria"] ?>'><br>
 </select><br>
 <input type="hidden" value='<?php echo $_POST["id"] ?>' name="id">
 <input type="submit" name="mod" value="Modificar Producto">

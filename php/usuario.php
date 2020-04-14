@@ -23,7 +23,7 @@
 		}
 
 		public function modificar ($nombre, $tipo, $password){
-			$this->sentencia= "UPDATE usuario SET nombre='$nombre', tipo='$tipo', password='$password' WHERE IDusuario='$id'";
+			$this->sentencia="UPDATE usuario SET nombre='$nombre', tipo='$tipo', password='$password' WHERE IDusuario='$id'";
 			$this->ejecutarSentencia();
 		}
 

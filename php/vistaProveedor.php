@@ -5,11 +5,11 @@ if(!isset($_POST["modificar"])){
  ?>
 
 <form action="" method="post">
-<input type="text" name="nombre" placeholder="Nombre: "><br>
-<input type="text" name="telefono" placeholder="Telefono: "><br>
-<input type="text" name="direccion" placeholder="Direccion: "><br>
-<input type="text" name="correo" placeholder="Correo: "><br>
-<input type="text" name="rfc" placeholder="RFC: "><br>
+nombre del proveedor <br><input type="text" name="nombre" placeholder="escribe el nombre"><br>
+telefono del proveedor <br><input type="text" name="telefono" placeholder="escribe el telefono"><br>
+direccion del proveedor<br><input type="text" name="direccion" placeholder="escribe la direccion"><br>
+correo del proveedor<br><input type="text" name="correo" placeholder="escribe el correo"><br>
+RFC del proveedor<br><input type="text" name="rfc" placeholder="escribe el RFC"><br>
 </select><br>
 <input type="submit" name="alta" value="Guardar Proveedor">
 </form>
@@ -19,11 +19,11 @@ if(!isset($_POST["modificar"])){
     ?>
 
 <form action="" method="post">
-<input type="text" name="nombre" placeholder="Nombre: " value='<?php echo $fila["nombre"] ?>'><br>
-<input type="text" name="telefono" placeholder="Telefono: " value='<?php echo $fila["telefono"] ?>'><br>
-<input type="text" name="direccion" placeholder="Direccion: " value='<?php echo $fila["direccion"] ?>'><br>
-<input type="text" name="correo" placeholder="Correo: " value='<?php echo $fila["correo"] ?>'><br>
-<input type="text" name="rfc" placeholder="RFC: " value='<?php echo $fila["rfc"] ?>'><br>
+nombre del proveedor <br><input type="text" name="nombre" placeholder="escribe el nombre" value='<?php echo $fila["nombre"] ?>'><br>
+telefono del proveedor <br><input type="text" name="telefono" placeholder="escribe el telefono" value='<?php echo $fila["telefono"] ?>'><br>
+direccion del proveedor<br><input type="text" name="direccion" placeholder="escribe la direccion" value='<?php echo $fila["direccion"] ?>'><br>
+correo del proveedor<br><input type="text" name="correo" placeholder="escribe el correo" value='<?php echo $fila["correo"] ?>'><br>
+RFC del proveedor<br><input type="text" name="rfc" placeholder="escribe el RFC" value='<?php echo $fila["rfc"] ?>'><br>
 </select><br>
 <input type="hidden" value='<?php echo $_POST["id"] ?>' name="id">
 <input type="submit" name="mod" value="Modificar Proveedor">

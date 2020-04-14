@@ -1,6 +1,6 @@
 <form action="" method="post">
 
-	hrs_trabajadas: <br>
+	hhrs_trabajadas: <br>
 	<input type="text" name="hrs_trabajadas" placeholder="hrs trabajadas">
 	<br>
 	dias_trabajados: <br>
