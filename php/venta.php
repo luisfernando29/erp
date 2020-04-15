@@ -14,7 +14,7 @@ class Venta extends Conexion{
         return $this->obtenerSentencia();
     }
     public function buscar($id){
-        $this->sentencia = "SELECT * FROM usuario WHERE IDventa=$id";
+        $this->sentencia = "SELECT * FROM venta WHERE IDventa=$id";
         return $this->obtenerSentencia();
     }
     public function modificar($fecha,$IDCliente,$total,$tipo_pago){

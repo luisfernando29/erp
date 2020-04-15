@@ -22,10 +22,11 @@
 			return $this->obtenerSentencia();
 		}
 
-		public function modificar ($nombre, $tipo, $password){
-			$this->sentencia="UPDATE usuario SET nombre='$nombre', tipo='$tipo', password='$password' WHERE IDusuario='$id'";
+		public function modificar($nombre,$tipo,$password,$id){
+			$this->sentencia = "UPDATE usuario SET nombre='$nombre',tipo='$tipo',password='$password' WHERE IDusuario='$id'";
+			echo $this->sentencia;
 			$this->ejecutarSentencia();
-		}
+        }
 
 		public function comprobar($u,$p){
 			$this->sentencia="SELECT * FROM usuario WHERE nombre='$u' AND password='$p'";

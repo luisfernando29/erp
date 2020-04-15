@@ -38,6 +38,7 @@
 				<a href="?sec=proyec"><li>Proyecto</li></a>
 				<a href="?sec=rempl"><li>Remplazo</li></a>
 				<a href="?sec=venta"><li>Venta</li></a>
+				<a href="?sec=report"><li>Reportes</li></a>
 
 				<a href="?sec=cerrar"><li>cerrar sesion</li></a>
 
@@ -105,6 +106,9 @@
 						break;
 					case 'venta':
 						require_once("php/vistaVenta.php");
+						break;
+					case 'report':
+						require_once("php/vistaReporte.php");
 						break;
 
 					case 'cerrar':

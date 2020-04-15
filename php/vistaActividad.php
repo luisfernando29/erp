@@ -1,21 +1,31 @@
+<?php
+require_once("actividad.php");
+$obj = new Actividad();
+if(!isset($_POST["modificar"])){ 
+ ?>
+ 
 <form action="" method="post">
-
-	Registro: <br>
-	<input type="text" name="registro" placeholder="Escribe el registro">
-	<br>
-	Idusuario: <br>
-	<input type="text" name="Id usuario" placeholder="Escribe el Id usuario"> <br>
-	movimiento actividad: <br>
-	<input type="text" name="movimiento_act" placeholder="Escribe el movimiento"> <br>
-	movimiento Tabla: <br>
-	<input type="text" name="movimiento_tabla" placeholder="Escribe el movimiento"> <br>
-
+	Registro:<br><input type="text" name="registro" placeholder="Escribe el registro"><br>
+	Idusuario:<br><input type="text" name="Id usuario" placeholder="Escribe el Id usuario"><br>
+	movimiento actividad:<br><input type="text" name="movimiento_act" placeholder="Escribe el movimiento"><br>
+	movimiento Tabla:<br><input type="text" name="movimiento_tabla" placeholder="Escribe el movimiento"><br>
 	<input type="submit" name="alta" value="Guardar Actividad"> 
 </form>
 
-<?php 
-require_once("actividad.php");
-$obj = new Actividad();
+<?php }else{ 
+    $res = $obj->buscar($_POST["id"]);
+    $fila = $res->fetch_assoc();
+?>
+<form action="" method="post">
+	Registro:<br><input type="text" name="registro" placeholder="Escribe el registro" value= '<?php echo$fila[""]?>'><br>
+	Idusuario:<br><input type="text" name="Id usuario" placeholder="Escribe el Id usuario" value= '<?php echo$fila[""]?>'><br>
+	movimiento actividad:<br><input type="text" name="movimiento_act" placeholder="Escribe el movimiento" value= '<?php echo$fila[""]?>'><br>
+	movimiento Tabla:<br><input type="text" name="movimiento_tabla" placeholder="Escribe el movimiento" value= '<?php echo$fila[""]?>'><br>
+	<input type="submit" name="mod" value="Modificar Actividad"> 
+</form>
+
+<?php }
+
 
 	if (isset($_POST["alta"])) {
 		$registro=$_POST["registro"];
